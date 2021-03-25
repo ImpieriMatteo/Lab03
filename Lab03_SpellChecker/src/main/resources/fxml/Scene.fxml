@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.FXMLController">
    <top>
       <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -61,14 +61,16 @@
                </font>
             </Label>
             <TextArea fx:id="txtOutput" minHeight="157.0" prefHeight="157.0" prefWidth="360.0" />
-            <GridPane prefHeight="79.0" prefWidth="360.0">
+            <GridPane prefHeight="100.0" prefWidth="360.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="280.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="80.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Button fx:id="btnClearText" minWidth="79.0" mnemonicParsing="false" onAction="#handleClearText" text="Clear text" GridPane.columnIndex="1">
@@ -84,10 +86,29 @@
                         <Insets left="140.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label fx:id="txtOperationTime" GridPane.rowIndex="1">
+                  <Label fx:id="txtOperationTimeLinear" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="2.0" top="10.0" />
+                        <Insets left="2.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtOperationTimeDichotomic" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtOperationTime" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
                   </Label>
                </children>
                <VBox.margin>

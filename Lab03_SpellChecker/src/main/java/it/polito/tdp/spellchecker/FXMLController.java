@@ -41,6 +41,12 @@ public class FXMLController {
     private Label txtNumberOfErrors;
 
     @FXML
+    private Label txtOperationTimeLinear;
+    
+    @FXML
+    private Label txtOperationTimeDichotomic;
+    
+    @FXML
     private Label txtOperationTime;
 
     @FXML
@@ -48,13 +54,16 @@ public class FXMLController {
     	this.txtInput.clear();
     	this.txtOutput.clear();
     	this.txtOperationTime.setText("");
+    	this.txtOperationTimeLinear.setText("");
+    	this.txtOperationTimeDichotomic.setText("");
     	this.txtNumberOfErrors.setText("");
     }
 
     @FXML
     void handleSpellCheck(ActionEvent event) {
     	this.txtOutput.setText("");
-    	this.txtOperationTime.setText("");
+    	this.txtOperationTimeLinear.setText("");
+    	this.txtOperationTimeDichotomic.setText("");
     	this.txtNumberOfErrors.setText("");
     	
     	if(this.txtInput.getText().isEmpty()) {
@@ -72,7 +81,9 @@ public class FXMLController {
     	List<String> errors;
     	
     	try {
-    		errors = model.getErrors(this.txtInput.getText(), language);
+    		errors = model.spellCheckText(this.txtInput.getText(), language);
+    		model.spellCheckTextDichotomic(this.txtInput.getText(), language);
+    		model.spellCheckTextLinear(this.txtInput.getText(), language);
     		
     	} catch(Exception e) {
     		
@@ -82,6 +93,8 @@ public class FXMLController {
     	for(String s : errors) {
     		this.txtOutput.appendText(s+"\n");
     	}
+    	this.txtOperationTimeLinear.setText("Linear spell check completed in "+model.getTimeOperationLinear()+" seconds");
+    	this.txtOperationTimeDichotomic.setText("Dichotomic spell check completed in "+model.getTimeOperationDichotomic()+" seconds");
     	this.txtOperationTime.setText("Spell check completed in "+model.getTimeOperation()+" seconds");
     	this.txtNumberOfErrors.setText("The text contains "+errors.size()+" errors");
     }
@@ -99,6 +112,8 @@ public class FXMLController {
         assert btnSpellCheck != null : "fx:id=\"btnSpellCheck\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnClearText != null : "fx:id=\"btnClearText\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtNumberOfErrors != null : "fx:id=\"txtNumberOfErrors\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert txtOperationTimeLinear != null : "fx:id=\"txtOperationTime\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert txtOperationTimeDichotomic != null : "fx:id=\"txtOperationTimeDichotomic\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtOperationTime != null : "fx:id=\"txtOperationTime\" was not injected: check your FXML file 'Scene.fxml'.";
 
     }

@@ -3,13 +3,12 @@ package it.polito.tdp.spellchecker.model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ArrayDictionary {
-	
-	List<String> dictionary;
+public class ArrayListDictionary {
 
-	public ArrayDictionary() {
+	ArrayList<String> dictionary;
+
+	public ArrayListDictionary() {
 		this.dictionary = new ArrayList<>();
 	}
 	
@@ -31,9 +30,7 @@ public class ArrayDictionary {
 		}
 	}
 
-	public List<String> getDictionary() {
+	public ArrayList<String> getDictionary() {
 		return dictionary;
 	}
-	
-
 }
